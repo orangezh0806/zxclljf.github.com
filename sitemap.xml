@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zxclljf.github.io/2018/05/07/PHP/test/test/</loc>
+    
+    <lastmod>2018-05-07T07:51:54.941Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zxclljf.github.io/tags/index.html</loc>
     
     <lastmod>2018-05-07T07:50:02.345Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://zxclljf.github.io/categories/index.html</loc>
     
     <lastmod>2018-05-07T07:49:57.891Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zxclljf.github.io/2018/05/07/PHP/test/test/</loc>
-    
-    <lastmod>2018-05-07T07:40:22.279Z</lastmod>
     
   </url>
   
