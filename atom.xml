@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>OrangeZh</title>
   
-  <subtitle>Welcome orangeZh`s Blog!</subtitle>
+  <subtitle>Welcome to orangeZh`s Blog!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxclljf.github.io/"/>
