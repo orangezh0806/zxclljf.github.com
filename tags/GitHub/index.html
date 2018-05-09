@@ -84,7 +84,7 @@
 <meta name="description" content="😴懒人的世界少有阳光😴">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OrangeZh">
-<meta property="og:url" content="https://zxclljf.github.io/tags/GitHub/index.html">
+<meta property="og:url" content="https://zxclljf.github.io/tags/Github/index.html">
 <meta property="og:site_name" content="OrangeZh">
 <meta property="og:description" content="😴懒人的世界少有阳光😴">
 <meta property="og:locale" content="zh-Hans">
@@ -100,7 +100,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://zxclljf.github.io/tags/GitHub/"/>
+  <link rel="canonical" href="https://zxclljf.github.io/tags/Github/"/>
 
 
 
 
 
-  <title>标签: GitHub | OrangeZh</title>
+  <title>标签: Github | OrangeZh</title>
   
 
 
@@ -280,7 +280,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>GitHub<small>标签</small>
+        <h2>Github<small>标签</small>
         </h2>
       </div>
 
@@ -292,9 +292,9 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（二）-Hexo安装配置篇/" itemprop="url">
+            <a class="post-title-link" href="/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（三）-Hexo主题配置篇/" itemprop="url">
               
-                <span itemprop="name">GitHub+Hexo博客搭建系列（二）--Hexo安装配置篇</span>
+                <span itemprop="name">GitHub+Hexo博客搭建系列（三）--Hexo主题配置篇</span>
               
             </a>
         
@@ -302,37 +302,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-09T09:47:15+08:00"
+              datetime="2018-05-09T13:50:52+08:00"
               content="2018-05-09" >
           05-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/08/Hexo/GitHub-Hexo博客搭建系列（一）-前期准备篇/" itemprop="url">
-              
-                <span itemprop="name">GitHub+Hexo博客搭建系列（一）--前期准备篇</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-08T16:06:59+08:00"
-              content="2018-05-08" >
-          05-08
         </time>
       </div>
 
@@ -396,7 +368,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -418,7 +390,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -473,6 +445,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -498,7 +477,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.0k</span>
+    <span title="Site words total count">2.5k</span>
   
 </div>
 
@@ -542,11 +521,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -987,6 +961,53 @@
     $('.popup-btn-close').click(onPopupClose);
     $('.popup').click(function(e){
       e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+;
     });
     $(document).on('keyup', function (event) {
       var shouldDismissSearchPopup = event.which === 27 &&
