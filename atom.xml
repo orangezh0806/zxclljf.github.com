@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxclljf.github.io/"/>
-  <updated>2018-05-09T01:30:07.118Z</updated>
+  <updated>2018-05-09T02:49:37.200Z</updated>
   <id>https://zxclljf.github.io/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GitHub+Hexo博客搭建系列（二）--Hexo安装配置篇</title>
+    <link href="https://zxclljf.github.io/2018/05/09/Hexo/GitHub-Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89-Hexo%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E7%AF%87/"/>
+    <id>https://zxclljf.github.io/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（二）-Hexo安装配置篇/</id>
+    <published>2018-05-09T01:47:15.000Z</published>
+    <updated>2018-05-09T02:49:37.200Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>在你自己的本地新建一个文件夹准备安装hexo,我的文件夹是在<code>D:\OZ-Dev\GitHub\WorkSpace\hexo</code><br>，进入文件夹，右键打开Git Bash,输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p><p><img src="https://i.imgur.com/DbVxbMu.png" alt=""><br>可能你会看到一个WARN，但是不用担心，这不会影响你的正常使用。 然后输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure></p><p>然后你会看到Bash刷了一大堆😴，下面我们来看一看Hexo是不是已经安装好了。 在命令行中输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p><p>如果你看到了如图结果，说明已经安装成功了。<br><img src="https://i.imgur.com/0Ox7th3.png" alt=""></p><h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>新建文件夹<code>D:\OZ-Dev\GitHub\WorkSpace\hexo\hexoSpace</code>,进入文件夹打开Git Bash,输入Hexo初始化命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p><p>然后输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p><p>npm将会自动安装你需要的组件，等待npm安装完成。</p><h2 id="首次运行体验"><a href="#首次运行体验" class="headerlink" title="首次运行体验"></a>首次运行体验</h2><p>输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></p><p>生成静态文件<br><img src="https://i.imgur.com/QZ7FV0F.png" alt=""><br>然后输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></p><p>启动本地调试<br><img src="https://i.imgur.com/ynouGHE.png" alt=""><br>在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，你将会看见😴：<br><img src="https://i.imgur.com/Z0oPrf5.png" alt=""></p><h2 id="Hexo与github-page-关联"><a href="#Hexo与github-page-关联" class="headerlink" title="Hexo与github page 关联"></a>Hexo与github page 关联</h2><h3 id="1、配置git信息"><a href="#1、配置git信息" class="headerlink" title="1、配置git信息"></a>1、配置git信息</h3><p>如果你之前已经配置好git个人信息，请跳过此步骤<br>在git bash中输入<code>git config --list</code>可查看配置信息<br><img src="https://i.imgur.com/6MhNwlr.png" alt=""></p><ul><li><p>设置Git的user name和email：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"yourname"</span></span><br><span class="line">git config --global user.email <span class="string">"youremail"</span></span><br></pre></td></tr></table></figure></li><li><p>生成密钥：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"youremail"</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="2、配置Deployment"><a href="#2、配置Deployment" class="headerlink" title="2、配置Deployment"></a>2、配置Deployment</h3><p>使用编辑器打开<code>D:\OZ-Dev\GitHub\WorkSpace\hexo\hexoSpace</code>目录下的_config.yml配置文件（此文件为hexo的配置文件），找到Deployment，然后按照如下修改：<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:yourname/yourname.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p><h3 id="3、安装hexo-deployer-git扩展"><a href="#3、安装hexo-deployer-git扩展" class="headerlink" title="3、安装hexo-deployer-git扩展"></a>3、安装hexo-deployer-git扩展</h3><p>安装命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p><p>如果不提前安装此扩展，在后面部署的时候会出现错误：</p><blockquote><p>deloyer not found:git</p></blockquote><h3 id="4、部署到Github上"><a href="#4、部署到Github上" class="headerlink" title="4、部署到Github上"></a>4、部署到Github上</h3><p>输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g   // 生成</span><br><span class="line">hexo d   // 部署</span><br></pre></td></tr></table></figure></p><p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g //在部署前先生成</span><br></pre></td></tr></table></figure></p><p>然后你就可以在Github上看见你的东西啦~😴，在浏览器输入<a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a> 就可以看见啦~😴(这是我的：<a href="https://zxclljf.github.io">https://zxclljf.github.io</a>)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Hexo安装&quot;&gt;&lt;a href=&quot;#Hexo安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo安装&quot;&gt;&lt;/a&gt;Hexo安装&lt;/h2&gt;&lt;p&gt;在你自己的本地新建一个文件夹准备安装hexo,我的文件夹是在&lt;code&gt;D:\OZ-Dev\GitHub\W
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://zxclljf.github.io/categories/Hexo/"/>
+    
+    
+      <category term="GitHub" scheme="https://zxclljf.github.io/tags/GitHub/"/>
+    
+      <category term="Hexo" scheme="https://zxclljf.github.io/tags/Hexo/"/>
+    
+      <category term="Node.js" scheme="https://zxclljf.github.io/tags/Node-js/"/>
+    
+      <category term="git" scheme="https://zxclljf.github.io/tags/git/"/>
+    
+      <category term="Hexo配置" scheme="https://zxclljf.github.io/tags/Hexo%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="Hexo安装" scheme="https://zxclljf.github.io/tags/Hexo%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>GitHub+Hexo博客搭建系列（一）--前期准备篇</title>
     <link href="https://zxclljf.github.io/2018/05/08/Hexo/GitHub-Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87%E7%AF%87/"/>
     <id>https://zxclljf.github.io/2018/05/08/Hexo/GitHub-Hexo博客搭建系列（一）-前期准备篇/</id>
     <published>2018-05-08T08:06:59.000Z</published>
-    <updated>2018-05-09T01:30:07.118Z</updated>
+    <updated>2018-05-09T01:31:27.260Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>一直想在Github上搭建一个自己的博客，近期也花了点儿时间对其进行搭建，就此写下搭建系列博客以测验，以下步骤均亲测，也遇到些小坑。系列博客仅供参考学习，如有错误之处请留言指教（留言方式：文章底部评论 or <a href="mailto:15708486258@163.com" target="_blank" rel="noopener">发邮件</a>）,邮箱留言更及时，请优先选择<a href="mailto:15708486258@163.com" target="_blank" rel="noopener">发邮件</a>。</p></blockquote><h2 id="前期准备有以下几步："><a href="#前期准备有以下几步：" class="headerlink" title="前期准备有以下几步："></a>前期准备有以下几步：</h2><ol><li>Node.js的安装</li><li>Git安装</li><li>GitHub账户注册及配置</li></ol><h2 id="Node-js的安装"><a href="#Node-js的安装" class="headerlink" title="Node.js的安装"></a>Node.js的安装</h2><p>下载Node.js:</p><ul><li><a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x86.msi" target="_blank" rel="noopener">Windows Installer 32-bit</a></li><li><a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x64.msi" target="_blank" rel="noopener">Windows Installer 64-bit</a></li></ul><p>根据自己的Windows版本选择安装，安装步骤截图就不一一贴了。（如遇问题，详细安装教程请另行百度啦~😴）<br>验证是否安装成功：Win+R,输入CMD<br><img src="https://i.imgur.com/7xwPlsX.png" alt=""></p><p>使用如下命令查看安装版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure></p><p><img src="https://i.imgur.com/tWR7Ylu.png" alt=""></p><h2 id="Git的安装配置"><a href="#Git的安装配置" class="headerlink" title="Git的安装配置"></a>Git的安装配置</h2><p>下载Git安装文件：</p><ul><li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git官网下载地址</a></li></ul><p>Git安装贴图<del>~</del>[图片丢失]😴</p><p>查看Git是否配置成功：<br>因为安装时没有指定PATH，所以点击鼠标右键看是否有Git Bash<br>打开Git Bash输入<code>git --version</code><br><img src="https://i.imgur.com/aiK0X2v.png" alt=""></p><p>关于git的下载即安装，可以参考这一篇博客： <a href="http://blog.csdn.net/gdutxiaoxu/article/details/53573286" target="_blank" rel="noopener">Git下载及配置环境变量</a></p><h2 id="GitHub配置"><a href="#GitHub配置" class="headerlink" title="GitHub配置"></a>GitHub配置</h2><p>第一步：注册Github账号（如已有请跳过😴）</p><p><a href="https://github.com/" target="_blank" rel="noopener">GitHub官网</a></p><p>第二步：创建代码库</p><p><img src="https://i.imgur.com/N9O4Mcg.png" alt=""></p><p>输入代码库名称等信息<br><img src="https://i.imgur.com/D7ZOiSl.png" alt=""></p><p style="color:red;font-weight:bold">注意：比如我的github名称是zxclljf ,这里你就填 zxclljf.github.io,如果你的名字是orange，那你就填 orange.github.io</p><p>进入代码库 Setting 设置GitHub Pages<br><img src="https://i.imgur.com/eElqzSz.png" alt=""><br><img src="https://i.imgur.com/QeRC1KH.png" alt=""></p><p>到此搭建hexo博客的相关前期配置已经完成，下面开始讲解Hexo的相关配置</p>]]></content>
     
@@ -53,7 +88,7 @@
     <link href="https://zxclljf.github.io/2018/05/07/PHP/PHP%20Debug/test/"/>
     <id>https://zxclljf.github.io/2018/05/07/PHP/PHP Debug/test/</id>
     <published>2018-05-07T07:22:35.000Z</published>
-    <updated>2018-05-08T10:16:37.475Z</updated>
+    <updated>2018-05-09T01:07:55.391Z</updated>
     
     <summary type="html">
     
@@ -75,7 +110,7 @@
     <link href="https://zxclljf.github.io/2018/05/07/%E6%B5%8B%E8%AF%95/First-Test/"/>
     <id>https://zxclljf.github.io/2018/05/07/测试/First-Test/</id>
     <published>2018-05-07T02:57:29.000Z</published>
-    <updated>2018-05-08T10:16:37.472Z</updated>
+    <updated>2018-05-09T01:07:55.389Z</updated>
     
     <summary type="html">
     
@@ -93,7 +128,7 @@
     <link href="https://zxclljf.github.io/2018/05/07/Hexo/hello-world/"/>
     <id>https://zxclljf.github.io/2018/05/07/Hexo/hello-world/</id>
     <published>2018-05-07T01:52:54.852Z</published>
-    <updated>2018-05-08T10:16:37.468Z</updated>
+    <updated>2018-05-09T01:07:55.387Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
