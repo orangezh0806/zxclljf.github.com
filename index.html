@@ -355,6 +355,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（五）-扩展插件篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（五）-扩展插件篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -533,6 +543,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（四）-发布文章及Markdown篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（四）-发布文章及Markdown篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -713,6 +733,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（三）-Hexo主题配置篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（三）-Hexo主题配置篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -892,6 +922,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（二）-Hexo安装配置篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（二）-Hexo安装配置篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1069,6 +1109,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/08/Hexo/GitHub-Hexo博客搭建系列（一）-前期准备篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/08/Hexo/GitHub-Hexo博客搭建系列（一）-前期准备篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1264,6 +1314,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/07/PHP/PHP Debug/test/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/07/PHP/PHP Debug/test/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1443,6 +1503,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/07/测试/First-Test/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/07/测试/First-Test/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1621,6 +1691,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/07/Hexo/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/07/Hexo/hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -2058,21 +2138,30 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
 
 
 
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'IuhJfahHIDoyvgV1t85kb3SF-gzGzoHsz',
+        appKey: 'w4GEHuj1s1timUdLqS1FAT5x',
+        placeholder: '😴发个评论吧~啊哈哈😂',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
