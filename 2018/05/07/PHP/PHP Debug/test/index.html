@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="OrangeZh">
 <meta property="og:description" content="😴懒人的世界少有阳光😴">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-10T02:47:08.785Z">
+<meta property="og:updated_time" content="2018-05-10T03:51:19.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP Debug Test">
 <meta name="twitter:description" content="😴懒人的世界少有阳光😴">
@@ -371,7 +371,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/05/07/PHP/PHP Debug/test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/07/PHP/PHP Debug/test/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/07/PHP/PHP Debug/test/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -525,7 +525,11 @@
 
   
     <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
     </div>
+
   
 
 
@@ -569,7 +573,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -591,7 +595,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -860,30 +864,45 @@
 
 
 
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'zxclljf',
+            repo: 'https://github.com/zxclljf/zxclljf.github.com',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '54a11ec63faf80aebfd0f887f50c9b232ea52c0e',
+            
+                client_id: '5867ca7a84c087b7569e'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: true,
-        appId: 'IuhJfahHIDoyvgV1t85kb3SF-gzGzoHsz',
-        appKey: 'w4GEHuj1s1timUdLqS1FAT5x',
-        placeholder: '😴发个评论吧~啊哈哈😂',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
+
 
 
 

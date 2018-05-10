@@ -90,7 +90,7 @@
 <meta property="og:description" content="前面几篇是说如何安装配置，此篇将讲述如何发布博文，如何使用Markdown工具编辑博文。 新建博文在站点目录下打开git bash,输入命令：1hexo new post &quot;文章标题&quot; 你将会在source/_post/目录下看见新增的 文章标题.md 文件，文件可用记事本打开,下面是文章的初始内容：12345---title: 文章标题date: 2018-05-10 11:14:31tags:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/qZcejzd.png">
-<meta property="og:updated_time" content="2018-05-10T05:41:37.511Z">
+<meta property="og:updated_time" content="2018-05-10T05:41:51.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub+Hexo博客搭建系列（四）--发布文章及Markdown篇">
 <meta name="twitter:description" content="前面几篇是说如何安装配置，此篇将讲述如何发布博文，如何使用Markdown工具编辑博文。 新建博文在站点目录下打开git bash,输入命令：1hexo new post &quot;文章标题&quot; 你将会在source/_post/目录下看见新增的 文章标题.md 文件，文件可用记事本打开,下面是文章的初始内容：12345---title: 文章标题date: 2018-05-10 11:14:31tags:">
@@ -362,7 +362,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（四）-发布文章及Markdown篇/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（四）-发布文章及Markdown篇/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（四）-发布文章及Markdown篇/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -697,6 +697,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/05/10/Hexo/GitHub-Hexo博客搭建系列（五）-扩展插件篇/" rel="prev" title="GitHub+Hexo博客搭建系列（五）--扩展插件篇">
+                GitHub+Hexo博客搭建系列（五）--扩展插件篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -726,7 +730,11 @@
 
   
     <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
     </div>
+
   
 
 
@@ -779,7 +787,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -801,7 +809,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1086,30 +1094,45 @@
 
 
 
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'zxclljf',
+            repo: 'https://github.com/zxclljf/zxclljf.github.com',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '54a11ec63faf80aebfd0f887f50c9b232ea52c0e',
+            
+                client_id: '5867ca7a84c087b7569e'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: true,
-        appId: 'IuhJfahHIDoyvgV1t85kb3SF-gzGzoHsz',
-        appKey: 'w4GEHuj1s1timUdLqS1FAT5x',
-        placeholder: '😴发个评论吧~啊哈哈😂',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
+
 
 
 

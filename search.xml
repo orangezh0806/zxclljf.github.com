@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GitHub+Hexo博客搭建系列（五）--扩展插件篇]]></title>
+    <url>%2F2018%2F05%2F10%2FHexo%2FGitHub-Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%94%EF%BC%89-%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6%E7%AF%87%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>rss</tag>
+        <tag>sitmap</tag>
+        <tag>插件</tag>
+        <tag>评论</tag>
+        <tag>Disqus</tag>
+        <tag>Valine</tag>
+        <tag>Gitment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GitHub+Hexo博客搭建系列（四）--发布文章及Markdown篇]]></title>
     <url>%2F2018%2F05%2F10%2FHexo%2FGitHub-Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%B3%BB%E5%88%97%EF%BC%88%E5%9B%9B%EF%BC%89-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E5%8F%8AMarkdown%E7%AF%87%2F</url>
     <content type="text"><![CDATA[前面几篇是说如何安装配置，此篇将讲述如何发布博文，如何使用Markdown工具编辑博文。 新建博文在站点目录下打开git bash,输入命令：1hexo new post "文章标题" 你将会在source/_post/目录下看见新增的 文章标题.md 文件，文件可用记事本打开,下面是文章的初始内容：12345---title: 文章标题date: 2018-05-10 11:14:31tags:--- title:文章标题date:文章创建日期tags:文章标签 [Hexo,Markdown]categories:文章分类 [Hexo]下面是配置此文章的参数：123456---title: 文章标题date: 2018-05-10 11:14:31tags: [Hexo,Markdown]categories: [Hexo]--- tags和categories参数可为空，配置格式为[xx1,xx2] 然后输入命令,即可查看本地的新增博文了：12hexo g //生成hexo s //启动本地服务 或者直接输入命令，发布到Github上进行查看： 12hexo g //生成hexo d //部署 或者1hexo d -g //部署前先生成 使用Markdown编辑博文1、安装MarkdownMarkdown下载地址 2、Markdown激活方法请参考这篇博文：MarkdownPad2.5 注册码 3、Markdown 编辑器语法指南Markdown 编辑器语法指南Markdown 教程 4、Markdown插入图片 先要激活Markdown才能使用图片上传功能，或者不能上传本地图片 5、Markdown代码块markdown里对代码块的引用语法是三个撇[`] ,在其后可增加代码名称,比如java,js等标记该部分代码的类型，之后在页面展现的时候就可以高亮显示关键字了。markdown支持以下语言高亮显示： 名称 关键字 调用的js AppleScript applescript shBrushAppleScript.js ActionScript 3.0 actionscript3 , as3 shBrushAS3.js Shell bash , shell shBrushBash.js ColdFusion coldfusion , cf shBrushColdFusion.js C cpp , c shBrushCpp.js C# c# , c-sharp , csharp shBrushCSharp.js CSS css shBrushCss.js Delphi delphi , pascal , pas shBrushDelphi.js diff&amp;patch diff patch shBrushDiff.js Erlang erl , erlang shBrushErlang.js Groovy groovy shBrushGroovy.js Java java shBrushJava.js JavaFX jfx , javafx shBrushJavaFX.js JavaScript js , jscript , javascript shBrushJScript.js Perl perl , pl , Perl shBrushPerl.js PHP php shBrushPhp.js text text , plain shBrushPlain.js Python py , python shBrushPython.js Ruby ruby , rails , ror , rb shBrushRuby.js SASS&amp;SCSS sass , scss shBrushSass.js Scala scala shBrushScala.js SQL sql shBrushSql.js Visual Basic vb , vbnet shBrushVb.js XML xml , xhtml , xslt , html shBrushXml.js Objective C objc , obj-c shBrushObjectiveC.js F# f# f-sharp , fsharp shBrushFSharp.js xpp , dynamics-xpp shBrushDynamics.js R r , s , splus shBrushR.js matlab matlab shBrushMatlab.js swift swift shBrushSwift.js GO go , golang shBrushGo.js 6、Markdown表格简单方式：1234名称 |关键字 |调用的js - | :-: | :-: AppleScript |applescript |shBrushAppleScript.js ActionScript 3.0 |actionscript3 , as3 |shBrushAS3.js 原生方式：1234|名称 |关键字 |调用的js || - | :-: | :-: ||AppleScript |applescript |shBrushAppleScript.js | |ActionScript 3.0 |actionscript3 , as3 |shBrushAS3.js | 名称 关键字 调用的js AppleScript applescript shBrushAppleScript.js ActionScript 3.0 actionscript3 , as3 shBrushAS3.js 语法说明： 第一行为表头，第二行分隔表头和主体部分，第三行开始每一行代表一个表格行； 列与列之间用管道符号 “|” 隔开，原生方式的表格每一行的两边也要有管道符。 可在第二行指定不同列单元格内容的对齐方式，默认为左对齐，在 “-” 右边加上 “:” 为右对齐，在 “-” 两侧同时加上 “:” 为居中对齐。]]></content>
