@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="OrangeZh">
 <meta property="og:description" content="😴懒人的世界少有阳光😴">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T05:53:12.638Z">
+<meta property="og:updated_time" content="2018-05-10T01:44:58.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="First Test">
 <meta name="twitter:description" content="😴懒人的世界少有阳光😴">
@@ -360,8 +360,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/05/07/测试/First-Test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/07/测试/First-Test/" itemprop="commentCount"></span>
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/07/测试/First-Test/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -513,14 +512,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
     </div>
-
   
 
 
@@ -826,26 +818,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://OrangeZh.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://zxclljf.github.io/2018/05/07/测试/First-Test/';
-          this.page.identifier = '2018/05/07/测试/First-Test/';
-          this.page.title = 'First Test';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://OrangeZh.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -861,12 +833,38 @@
 
 
 
+  
 
 
 
 
 
 
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'IuhJfahHIDoyvgV1t85kb3SF-gzGzoHsz',
+        appKey: 'w4GEHuj1s1timUdLqS1FAT5x',
+        placeholder: '😴发个评论吧~啊哈哈😂',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
