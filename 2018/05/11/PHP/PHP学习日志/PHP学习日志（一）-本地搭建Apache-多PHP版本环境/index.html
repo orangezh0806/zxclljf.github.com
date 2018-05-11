@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="OrangeZh" />
+  <meta name="keywords" content="PHP,Apache,PHP5,PHP7," />
 
 
 
@@ -81,16 +81,21 @@
 
 
 
-<meta name="description" content="😴懒人的世界少有阳光😴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="OrangeZh">
-<meta property="og:url" content="https://zxclljf.github.io/tags/Net主题/index.html">
+<meta name="description" content="都说PHP是世界上最好的编程语言，啊哈哈~其实语言都是实现解决方案的技术支持，重要的在于解决方案，语言以及框架只是提供技术选型，当然会一门或者多门编程语言是一个程序员必备的技能，也是一个程序员的饭碗，所以精通一门或者多门语言及框架是必要的。  下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。什么PHP的发展、故事什么的我就不写了，百度百科~😴 OK，进入主题吧，第一">
+<meta name="keywords" content="PHP,Apache,PHP5,PHP7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP学习日志（一）--本地搭建Apache+多PHP版本环境（WAMP）">
+<meta property="og:url" content="https://zxclljf.github.io/2018/05/11/PHP/PHP学习日志/PHP学习日志（一）-本地搭建Apache-多PHP版本环境/index.html">
 <meta property="og:site_name" content="OrangeZh">
-<meta property="og:description" content="😴懒人的世界少有阳光😴">
+<meta property="og:description" content="都说PHP是世界上最好的编程语言，啊哈哈~其实语言都是实现解决方案的技术支持，重要的在于解决方案，语言以及框架只是提供技术选型，当然会一门或者多门编程语言是一个程序员必备的技能，也是一个程序员的饭碗，所以精通一门或者多门语言及框架是必要的。  下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。什么PHP的发展、故事什么的我就不写了，百度百科~😴 OK，进入主题吧，第一">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/Ov5Rivg.png">
+<meta property="og:image" content="https://i.imgur.com/Ij1H8TP.png">
+<meta property="og:updated_time" content="2018-05-11T06:01:47.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OrangeZh">
-<meta name="twitter:description" content="😴懒人的世界少有阳光😴">
+<meta name="twitter:title" content="PHP学习日志（一）--本地搭建Apache+多PHP版本环境（WAMP）">
+<meta name="twitter:description" content="都说PHP是世界上最好的编程语言，啊哈哈~其实语言都是实现解决方案的技术支持，重要的在于解决方案，语言以及框架只是提供技术选型，当然会一门或者多门编程语言是一个程序员必备的技能，也是一个程序员的饭碗，所以精通一门或者多门语言及框架是必要的。  下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。什么PHP的发展、故事什么的我就不写了，百度百科~😴 OK，进入主题吧，第一">
+<meta name="twitter:image" content="https://i.imgur.com/Ov5Rivg.png">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://zxclljf.github.io/tags/Net主题/"/>
+  <link rel="canonical" href="https://zxclljf.github.io/2018/05/11/PHP/PHP学习日志/PHP学习日志（一）-本地搭建Apache-多PHP版本环境/"/>
 
 
 
 
 
-  <title>标签: Net主题 | OrangeZh</title>
+  <title>PHP学习日志（一）--本地搭建Apache+多PHP版本环境（WAMP） | OrangeZh</title>
   
 
 
@@ -145,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -273,54 +278,270 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Net主题<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxclljf.github.io/2018/05/11/PHP/PHP学习日志/PHP学习日志（一）-本地搭建Apache-多PHP版本环境/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="OrangeZh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/35-orange.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OrangeZh">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/09/Hexo/GitHub-Hexo博客搭建系列（三）-Hexo主题配置篇/" itemprop="url">
-              
-                <span itemprop="name">GitHub+Hexo博客搭建系列（三）--Hexo主题配置篇</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">PHP学习日志（一）--本地搭建Apache+多PHP版本环境（WAMP）</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-09T13:50:52+08:00"
-              content="2018-05-09" >
-          05-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T09:46:41+08:00">
+                2018-05-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/11/PHP/PHP学习日志/PHP学习日志（一）-本地搭建Apache-多PHP版本环境/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/11/PHP/PHP学习日志/PHP学习日志（一）-本地搭建Apache-多PHP版本环境/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,299
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>都说PHP是世界上最好的编程语言，啊哈哈~<br>其实语言都是实现解决方案的技术支持，重要的在于解决方案，语言以及框架只是提供技术选型，当然会一门或者多门编程语言是一个程序员必备的技能，也是一个程序员的饭碗，所以精通一门或者多门语言及框架是必要的。</p>
+</blockquote>
+<p>下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。<br>什么PHP的发展、故事什么的我就不写了，百度百科~😴</p>
+<p>OK，进入主题吧，第一篇是搭建本地的PHP环境，我的电脑是Win10，后面会有专门篇章讲解如何在Linux上搭建<code>LAMP(Linux+Apache+Mysql+PHP)</code>和<code>LNMP(Linux+Nginx+Mysql+PHP)</code></p>
+<p>个人喜欢手动搭建环境，所以也就没有使用集成环境了，如果觉得费事可以考虑直接使用集成环境哈~😴</p>
+<h2 id="Apache安装配置"><a href="#Apache安装配置" class="headerlink" title="Apache安装配置"></a>Apache安装配置</h2><h3 id="Apache安装"><a href="#Apache安装" class="headerlink" title="Apache安装"></a>Apache安装</h3><p><a href="https://www.apachehaus.com/cgi-bin/download.plx" target="_blank" rel="noopener">Apache下载地址</a></p>
+<p>将Apache源码下载后解压到你想存放的文件夹下，我的文件夹目录：<code>D:\OZ-Dev\PHP\tools\Apache24</code>,然后cmd进入Apache24目录，输入以下命令进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd.exe -k install</span><br></pre></td></tr></table></figure></p>
+<p>其他详细命令参考：<a href="http://httpd.apache.org/docs/current/platform/windows.html#down" target="_blank" rel="noopener">http://httpd.apache.org/docs/current/platform/windows.html#down</a></p>
+<p>安装完成后，进入<code>Apache24/bin</code>目录，双击 <code>ApacheMonitor.exe</code>,然后就可以在这里停止、启动、重启Apache服务了。<br><img src="https://i.imgur.com/Ov5Rivg.png" alt=""><br>在浏览器里面输入：<a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> 就可验证是否安装成功了</p>
+<h3 id="Apache配置"><a href="#Apache配置" class="headerlink" title="Apache配置"></a>Apache配置</h3><p>使用编辑器打开 <code>Apache24/conf/httpd.conf</code> 配置文件，分别修改以下配置：</p>
+<ol>
+<li><p>修改SRVROOT</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Define SRVROOT &quot;D:/OZ-Dev/PHP/tools/Apache24&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启重写rewrite</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule rewrite_module modules/mod_rewrite.so</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改DocumentRoot</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot &quot;D:/OZ-Dev/PHP/WorkSpace&quot;</span><br><span class="line">&lt;Directory &quot;D:/OZ-Dev/PHP/WorkSpace&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增index.php到DirectoryIndex</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.html index.php</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置多虚拟主机<br>在你的WorkSpace中新增一个index文件夹，再再index中随意新增一个index.html文件，我的路径：<code>D:\OZ-Dev\PHP\WorkSpace\index</code><br>使用编辑器打开 <code>Apache24/conf/extra/httpd-vhosts.conf</code> 配置文件,新增如下配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    ServerAdmin 15708486258@163.com</span><br><span class="line">    DocumentRoot &quot;D:\OZ-Dev\PHP\WorkSpace\index&quot;</span><br><span class="line">    ServerName zxc.index.com</span><br><span class="line">    ErrorLog &quot;logs/zxc.index.com-error.log&quot;</span><br><span class="line">    CustomLog &quot;logs/zxc.index.com-access.log&quot; common</span><br><span class="line">	&lt;Directory &quot;D:\OZ-Dev\PHP\WorkSpace\index&quot; &gt;</span><br><span class="line">	  Options Indexes FollowSymLinks</span><br><span class="line">      AllowOverride All</span><br><span class="line">      Require all granted</span><br><span class="line">	&lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>然后用编辑器打开<code>C:\Windows\System32\drivers\etc</code>目录下的<code>hosts</code>文件，添加自定义解析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 zxc.index.com</span><br></pre></td></tr></table></figure></p>
+<p><span style="color:red">注意：<code>hosts</code>文件的修改需要管理员权限，推荐下载notepad++打开进行修改，或者其他方法请自行百度。</span><br>重启Apache，在浏览器中输入<code>http://zxc.index.com</code>,即可验证虚拟主机是否搭建成功。</p>
+<h2 id="Mysql下载安装"><a href="#Mysql下载安装" class="headerlink" title="Mysql下载安装"></a>Mysql下载安装</h2><p><a href="https://dev.mysql.com/downloads/windows/installer/8.0.html" target="_blank" rel="noopener">Mysql下载地址</a><br>安装步骤就不一一贴图了<br>推荐一个破解版的MySQL工具，使用简单<br>下载：<a href="https://pan.baidu.com/s/10nxkjp6PJi_vwLrgJxHGHA" target="_blank" rel="noopener">Navicatformysql</a><br>下载解压后先复制<code>txt</code>中的key，然后进入<code>Navicat for MySQL</code>文件夹运行<code>navicat.exe</code>程序，提示激活的窗口，将key粘贴进去即可激活使用。</p>
+<h2 id="PHP安装配置（下载配置PHP5和PHP7，可手动切换）"><a href="#PHP安装配置（下载配置PHP5和PHP7，可手动切换）" class="headerlink" title="PHP安装配置（下载配置PHP5和PHP7，可手动切换）"></a>PHP安装配置（下载配置PHP5和PHP7，可手动切换）</h2><h3 id="PHP下载"><a href="#PHP下载" class="headerlink" title="PHP下载"></a>PHP下载</h3><p>PHP下载地址：</p>
+<ul>
+<li>PHP5：<a href="https://windows.php.net/download#php-5.6" target="_blank" rel="noopener">https://windows.php.net/download#php-5.6</a></li>
+<li>PHP7：<a href="https://windows.php.net/download#php-7.2" target="_blank" rel="noopener">https://windows.php.net/download#php-7.2</a><blockquote>
+<p>PHP版本有Non Thread Safe（非线程安全）和Thread Safe（线程安全）区别，Non Thread Safe（非线程安全）适合IIS服务器搭载，使用Apache请选用Thread Safe（线程安全）版本</p>
+</blockquote>
+</li>
+</ul>
+<p>PHP5和PHP7下载好后分别解压到合适的路径下，我的路径PHP5：<code>D:\OZ-Dev\PHP\tools\php-5.6.34-Win32-VC11-x64</code> ,PHP7:<code>D:\OZ-Dev\PHP\tools\php-7.2.3-Win32-VC15-x64</code><br>分别复制<code>php.ini-development</code>文件，将其名修改为<code>php.ini</code>,然后编辑<code>php.ini</code>文件，修改配置如下：</p>
+<ol>
+<li>修改extension_dir<br>PHP5：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension_dir = &quot;D:\OZ-Dev\PHP\tools\php-5.6.34-Win32-VC11-x64\ext&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>PHP7：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension_dir = &quot;D:\OZ-Dev\PHP\tools\php-7.2.3-Win32-VC15-x64\ext&quot;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>开启PHP扩展<br>搜索<code>Dynamic Extensions</code>,开启你所需要的扩展，PHP5和PHP7有一定的差异，但都是去掉相应扩展前面的<code>#</code>,下面已开启<code>mysqli</code>扩展为例：<br>PHP5：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=php_mysqli.dll</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>PHP7:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=mysqli</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>小提示：PHP7不再支持<code>mysql</code>扩展，建议使用<code>extension=pdo_mysql</code>扩展和<code>extension=mysqli</code>扩展</p>
+</blockquote>
+<h3 id="apache配置PHP"><a href="#apache配置PHP" class="headerlink" title="apache配置PHP"></a>apache配置PHP</h3><p>使用编辑器打开 <code>Apache24/conf/httpd.conf</code> 配置文件，新增如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># php7 support</span><br><span class="line">LoadModule php7_module &quot;D:/OZ-Dev/PHP/tools/php-7.2.3-Win32-VC15-x64/php7apache2_4.dll&quot;</span><br><span class="line">AddHandler application/x-httpd-php .php</span><br><span class="line"># configure the path to php.ini</span><br><span class="line">PHPIniDir &quot;D:/OZ-Dev/PHP/tools/php-7.2.3-Win32-VC15-x64/&quot;</span><br><span class="line"></span><br><span class="line"># php5 support</span><br><span class="line">#LoadModule php5_module &quot;D:/OZ-Dev/PHP/tools/php-5.6.34-Win32-VC11-x64/php5apache2_4.dll&quot;</span><br><span class="line">#AddHandler application/x-httpd-php .php</span><br><span class="line"># configure the path to php.ini</span><br><span class="line">#PHPIniDir &quot;D:/OZ-Dev/PHP/tools/php-5.6.34-Win32-VC11-x64/&quot;</span><br></pre></td></tr></table></figure></p>
+<p>以上配置使用了PHP7，如想切换到PHP5，请注释掉PHP7 support相关，开启PHP5 support即可。（记得修改之后要重启Apache哦）</p>
+<p>在<code>D:\OZ-Dev\PHP\WorkSpace\index</code>文件夹下新增<code>index.php</code>文件，输入以下代码，然后保存：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br></pre></td></tr></table></figure></p>
+<p>然后再浏览器中输入<a href="http://zxc.index.com/index.php" target="_blank" rel="noopener">http://zxc.index.com/index.php</a> 即可查看PHP相关配置信息，验证PHP是否安装成功。<br><img src="https://i.imgur.com/Ij1H8TP.png" alt=""></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+            <a href="/tags/Apache/" rel="tag"># Apache</a>
+          
+            <a href="/tags/PHP5/" rel="tag"># PHP5</a>
+          
+            <a href="/tags/PHP7/" rel="tag"># PHP7</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/10/git/git代码自动转换换行符问题/" rel="next" title="git代码自动转换换行符问题">
+                <i class="fa fa-chevron-left"></i> git代码自动转换换行符问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -328,6 +549,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -348,8 +576,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -448,6 +685,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache安装配置"><span class="nav-number">1.</span> <span class="nav-text">Apache安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache安装"><span class="nav-number">1.1.</span> <span class="nav-text">Apache安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache配置"><span class="nav-number">1.2.</span> <span class="nav-text">Apache配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql下载安装"><span class="nav-number">2.</span> <span class="nav-text">Mysql下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP安装配置（下载配置PHP5和PHP7，可手动切换）"><span class="nav-number">3.</span> <span class="nav-text">PHP安装配置（下载配置PHP5和PHP7，可手动切换）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP下载"><span class="nav-number">3.1.</span> <span class="nav-text">PHP下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apache配置PHP"><span class="nav-number">3.2.</span> <span class="nav-text">apache配置PHP</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -619,6 +872,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
