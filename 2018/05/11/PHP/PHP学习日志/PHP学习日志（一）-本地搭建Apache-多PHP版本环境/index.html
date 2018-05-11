@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PHP,Apache,PHP5,PHP7," />
+  <meta name="keywords" content="PHP,Apache,PHP5,PHP7,Mysql,Navicat for Mysql," />
 
 
 
@@ -82,7 +82,7 @@
 
 
 <meta name="description" content="都说PHP是世界上最好的编程语言，啊哈哈~其实语言都是实现解决方案的技术支持，重要的在于解决方案，语言以及框架只是提供技术选型，当然会一门或者多门编程语言是一个程序员必备的技能，也是一个程序员的饭碗，所以精通一门或者多门语言及框架是必要的。  下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。什么PHP的发展、故事什么的我就不写了，百度百科~😴 OK，进入主题吧，第一">
-<meta name="keywords" content="PHP,Apache,PHP5,PHP7">
+<meta name="keywords" content="PHP,Apache,PHP5,PHP7,Mysql,Navicat for Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP学习日志（一）--本地搭建Apache+多PHP版本环境（WAMP）">
 <meta property="og:url" content="https://zxclljf.github.io/2018/05/11/PHP/PHP学习日志/PHP学习日志（一）-本地搭建Apache-多PHP版本环境/index.html">
@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/Ov5Rivg.png">
 <meta property="og:image" content="https://i.imgur.com/Ij1H8TP.png">
-<meta property="og:updated_time" content="2018-05-11T06:01:47.710Z">
+<meta property="og:updated_time" content="2018-05-11T06:04:16.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP学习日志（一）--本地搭建Apache+多PHP版本环境（WAMP）">
 <meta name="twitter:description" content="都说PHP是世界上最好的编程语言，啊哈哈~其实语言都是实现解决方案的技术支持，重要的在于解决方案，语言以及框架只是提供技术选型，当然会一门或者多门编程语言是一个程序员必备的技能，也是一个程序员的饭碗，所以精通一门或者多门语言及框架是必要的。  下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。什么PHP的发展、故事什么的我就不写了，百度百科~😴 OK，进入主题吧，第一">
@@ -332,6 +332,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP学习日志/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP学习日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -410,7 +443,7 @@
 </blockquote>
 <p>下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。<br>什么PHP的发展、故事什么的我就不写了，百度百科~😴</p>
 <p>OK，进入主题吧，第一篇是搭建本地的PHP环境，我的电脑是Win10，后面会有专门篇章讲解如何在Linux上搭建<code>LAMP(Linux+Apache+Mysql+PHP)</code>和<code>LNMP(Linux+Nginx+Mysql+PHP)</code></p>
-<p>个人喜欢手动搭建环境，所以也就没有使用集成环境了，如果觉得费事可以考虑直接使用集成环境哈~😴</p>
+<p>个人喜欢手动搭建环境，所以也就没有使用集成环境了，如果觉得费事可以考虑直接使用集成环境哈~😴<br><a id="more"></a></p>
 <h2 id="Apache安装配置"><a href="#Apache安装配置" class="headerlink" title="Apache安装配置"></a>Apache安装配置</h2><h3 id="Apache安装"><a href="#Apache安装" class="headerlink" title="Apache安装"></a>Apache安装</h3><p><a href="https://www.apachehaus.com/cgi-bin/download.plx" target="_blank" rel="noopener">Apache下载地址</a></p>
 <p>将Apache源码下载后解压到你想存放的文件夹下，我的文件夹目录：<code>D:\OZ-Dev\PHP\tools\Apache24</code>,然后cmd进入Apache24目录，输入以下命令进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd.exe -k install</span><br></pre></td></tr></table></figure></p>
 <p>其他详细命令参考：<a href="http://httpd.apache.org/docs/current/platform/windows.html#down" target="_blank" rel="noopener">http://httpd.apache.org/docs/current/platform/windows.html#down</a></p>
@@ -486,6 +519,10 @@
             <a href="/tags/PHP5/" rel="tag"># PHP5</a>
           
             <a href="/tags/PHP7/" rel="tag"># PHP7</a>
+          
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
+          
+            <a href="/tags/Navicat-for-Mysql/" rel="tag"># Navicat for Mysql</a>
           
         </div>
       
@@ -616,7 +653,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -627,7 +664,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
