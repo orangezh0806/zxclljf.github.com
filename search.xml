@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java学习笔记（基础）--Java基础知识篇]]></title>
+    <url>%2F2019%2F05%2F29%2FJava%2FJava%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%2FJava%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89-Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%87%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[PHP学习日志（一）--本地搭建Apache+多PHP版本环境（WAMP）]]></title>
     <url>%2F2018%2F05%2F11%2FPHP%2FPHP%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%2FPHP%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%80%EF%BC%89-%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAApache-%E5%A4%9APHP%E7%89%88%E6%9C%AC%E7%8E%AF%E5%A2%83%2F</url>
     <content type="text"><![CDATA[都说PHP是世界上最好的编程语言，啊哈哈~其实语言都是实现解决方案的技术支持，重要的在于解决方案，语言以及框架只是提供技术选型，当然会一门或者多门编程语言是一个程序员必备的技能，也是一个程序员的饭碗，所以精通一门或者多门语言及框架是必要的。 下面是个人的PHP学习日志，仅供参考，如有不足之处请多多指教，相互学习交流。什么PHP的发展、故事什么的我就不写了，百度百科~😴 OK，进入主题吧，第一篇是搭建本地的PHP环境，我的电脑是Win10，后面会有专门篇章讲解如何在Linux上搭建LAMP(Linux+Apache+Mysql+PHP)和LNMP(Linux+Nginx+Mysql+PHP) 个人喜欢手动搭建环境，所以也就没有使用集成环境了，如果觉得费事可以考虑直接使用集成环境哈~😴 Apache安装配置Apache安装Apache下载地址 将Apache源码下载后解压到你想存放的文件夹下，我的文件夹目录：D:\OZ-Dev\PHP\tools\Apache24,然后cmd进入Apache24目录，输入以下命令进行安装：1httpd.exe -k install 其他详细命令参考：http://httpd.apache.org/docs/current/platform/windows.html#down 安装完成后，进入Apache24/bin目录，双击 ApacheMonitor.exe,然后就可以在这里停止、启动、重启Apache服务了。在浏览器里面输入：http://localhost/ 就可验证是否安装成功了 Apache配置使用编辑器打开 Apache24/conf/httpd.conf 配置文件，分别修改以下配置： 修改SRVROOT 1Define SRVROOT &quot;D:/OZ-Dev/PHP/tools/Apache24&quot; 开启重写rewrite 1LoadModule rewrite_module modules/mod_rewrite.so 修改DocumentRoot 12DocumentRoot &quot;D:/OZ-Dev/PHP/WorkSpace&quot;&lt;Directory &quot;D:/OZ-Dev/PHP/WorkSpace&quot;&gt; 新增index.php到DirectoryIndex 123&lt;IfModule dir_module&gt; DirectoryIndex index.html index.php&lt;/IfModule&gt; 配置多虚拟主机在你的WorkSpace中新增一个index文件夹，再再index中随意新增一个index.html文件，我的路径：D:\OZ-Dev\PHP\WorkSpace\index使用编辑器打开 Apache24/conf/extra/httpd-vhosts.conf 配置文件,新增如下配置: 123456789101112&lt;VirtualHost *:80&gt; ServerAdmin 15708486258@163.com DocumentRoot &quot;D:\OZ-Dev\PHP\WorkSpace\index&quot; ServerName zxc.index.com ErrorLog &quot;logs/zxc.index.com-error.log&quot; CustomLog &quot;logs/zxc.index.com-access.log&quot; common &lt;Directory &quot;D:\OZ-Dev\PHP\WorkSpace\index&quot; &gt; Options Indexes FollowSymLinks AllowOverride All Require all granted &lt;/Directory&gt;&lt;/VirtualHost&gt; 然后用编辑器打开C:\Windows\System32\drivers\etc目录下的hosts文件，添加自定义解析:1127.0.0.1 zxc.index.com 注意：hosts文件的修改需要管理员权限，推荐下载notepad++打开进行修改，或者其他方法请自行百度。重启Apache，在浏览器中输入http://zxc.index.com,即可验证虚拟主机是否搭建成功。 Mysql下载安装Mysql下载地址安装步骤就不一一贴图了推荐一个破解版的MySQL工具，使用简单下载：Navicatformysql下载解压后先复制txt中的key，然后进入Navicat for MySQL文件夹运行navicat.exe程序，提示激活的窗口，将key粘贴进去即可激活使用。 PHP安装配置（下载配置PHP5和PHP7，可手动切换）PHP下载PHP下载地址： PHP5：https://windows.php.net/download#php-5.6 PHP7：https://windows.php.net/download#php-7.2 PHP版本有Non Thread Safe（非线程安全）和Thread Safe（线程安全）区别，Non Thread Safe（非线程安全）适合IIS服务器搭载，使用Apache请选用Thread Safe（线程安全）版本 PHP5和PHP7下载好后分别解压到合适的路径下，我的路径PHP5：D:\OZ-Dev\PHP\tools\php-5.6.34-Win32-VC11-x64 ,PHP7:D:\OZ-Dev\PHP\tools\php-7.2.3-Win32-VC15-x64分别复制php.ini-development文件，将其名修改为php.ini,然后编辑php.ini文件，修改配置如下： 修改extension_dirPHP5：1extension_dir = &quot;D:\OZ-Dev\PHP\tools\php-5.6.34-Win32-VC11-x64\ext&quot; PHP7：1extension_dir = &quot;D:\OZ-Dev\PHP\tools\php-7.2.3-Win32-VC15-x64\ext&quot; 开启PHP扩展搜索Dynamic Extensions,开启你所需要的扩展，PHP5和PHP7有一定的差异，但都是去掉相应扩展前面的#,下面已开启mysqli扩展为例：PHP5：1extension=php_mysqli.dll PHP7:1extension=mysqli 小提示：PHP7不再支持mysql扩展，建议使用extension=pdo_mysql扩展和extension=mysqli扩展 apache配置PHP使用编辑器打开 Apache24/conf/httpd.conf 配置文件，新增如下配置：1234567891011# php7 supportLoadModule php7_module &quot;D:/OZ-Dev/PHP/tools/php-7.2.3-Win32-VC15-x64/php7apache2_4.dll&quot;AddHandler application/x-httpd-php .php# configure the path to php.iniPHPIniDir &quot;D:/OZ-Dev/PHP/tools/php-7.2.3-Win32-VC15-x64/&quot;# php5 support#LoadModule php5_module &quot;D:/OZ-Dev/PHP/tools/php-5.6.34-Win32-VC11-x64/php5apache2_4.dll&quot;#AddHandler application/x-httpd-php .php# configure the path to php.ini#PHPIniDir &quot;D:/OZ-Dev/PHP/tools/php-5.6.34-Win32-VC11-x64/&quot; 以上配置使用了PHP7，如想切换到PHP5，请注释掉PHP7 support相关，开启PHP5 support即可。（记得修改之后要重启Apache哦） 在D:\OZ-Dev\PHP\WorkSpace\index文件夹下新增index.php文件，输入以下代码，然后保存：12&lt;?phpphpinfo(); 然后再浏览器中输入http://zxc.index.com/index.php 即可查看PHP相关配置信息，验证PHP是否安装成功。]]></content>
@@ -56,8 +61,8 @@
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Hexo</tag>
+        <tag>GitHub</tag>
         <tag>Markdown</tag>
       </tags>
   </entry>
@@ -87,8 +92,8 @@
       </categories>
       <tags>
         <tag>git</tag>
-        <tag>GitHub</tag>
         <tag>Hexo</tag>
+        <tag>GitHub</tag>
         <tag>Node.js</tag>
         <tag>Hexo配置</tag>
         <tag>Hexo安装</tag>
@@ -103,8 +108,8 @@
       </categories>
       <tags>
         <tag>git</tag>
-        <tag>GitHub</tag>
         <tag>Hexo</tag>
+        <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>

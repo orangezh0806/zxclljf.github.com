@@ -1,0 +1,456 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Google Map自定义多边形区域</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="chrome=1" http-equiv="X-UA-Compatible">
+    <style>
+        #map { width: 100%; height: 80%; margin: 0 auto; }
+        html, body { height: 100%; margin: 0; padding: 0; }
+        .itemDiv { margin-bottom: 20px; }
+        .mytool { text-align: center; width: 40px; border: 1px solid #ccc; padding-top: 5px; padding-bottom: 5px; font-size: 10px; background: #ffffff; }
+        .mytool > a { text-decoration: none; display: block; display: inline-block; padding: 4px 6px; }
+        .mytool > a:hover { background-color: #b6ff00; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div style="position:absolute;left:700px;bottom:128px;width:348px;height:50px;">
+        <div>鼠标点击位置坐标：</div>
+        <div id="msg"></div>
+    </div>
+
+    <!--<div style="padding:50px;">
+        <div class="itemDiv">
+            Mark定位切换：<select id="positionList" onchange="pageConfig.changePosition(this)">
+                <option value="">&#45;&#45;请选择&#45;&#45;</option>
+            </select>
+        </div>
+        <div class="itemDiv">
+            服务范围：<select id="Store" onchange="pageConfig.storeChange(this, event)"></select>
+        </div>
+        <div class="itemDiv">
+            <input type="text" id="serarchAddressTxt" placeholder="搜索地址" />
+            <input type="button" value="搜索" onclick="pageConfig.searchAddress()" /><span id="tishiMsg"></span>
+        </div>-->
+    </div>
+
+    <script type="text/javascript">
+
+        var serviceList = [{ "NetworkSysNo": 413463191394193400, "NetworkName": "宽窄巷子", "FullAddress": "四川省成都市青羊区宽窄巷子长顺上街127号", "Contacts": "魯智深", "ContactNumber": "53453333333333334", "SysNo": 414861680137211900, "NetworkBizAuthSysNo": 413838142236266500, "MapType": 0, "MapScope": "30.659634242460026,104.04793404161421;30.668198440652468,104.05171059190718;30.66074172460761,104.05861996232954" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "天府丽都喜来登饭店", "FullAddress": "四川省成都市青羊区骡马市人民中路一段15号", "Contacts": "范喜鳳", "ContactNumber": "53453333333333334", "SysNo": 414861680191737860, "NetworkBizAuthSysNo": 413838142236266500, "MapScope": "30.662255263019365,104.07338284074751;30.66435941118352,104.07389782487837;30.662107601778743,104.0750565391728;30.662144517110058,104.07788895189253;30.660630976963905,104.07570026933638;30.658711330976477,104.07668732225386;30.65959732616989,104.07441280900923;30.658083746133983,104.07295368730513;30.660335649293653,104.07316826402632;30.661516954560145,104.07080792009322" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "青羊宫", "FullAddress": "成都市青羊区青羊宫商圈青羊区180號", "Contacts": "蘇三四", "ContactNumber": "53453333333333334", "SysNo": 414861680216903700, "NetworkBizAuthSysNo": 413838142236266500, "MapType": 0, "MapScope": "30.65860058100626,104.06243942796675;30.652139946479448,104.06201027452437;30.652103027327172,104.06909130632368;30.658379080685105,104.0695633751103" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "骡马市", "FullAddress": "四川省成都市武侯区武侯祠武侯祠大街231号", "Contacts": "狄仁傑", "ContactNumber": "53453333333333334", "SysNo": 414861680288206850, "NetworkBizAuthSysNo": 413838142236266500, "MapType": 0, "MapScope": "30.667386350984888,104.06273983537642;30.667312524313026,104.07042168199507;30.663030480831143,104.0703358513066;30.66336271513254,104.06252525865523" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "蜀九香火锅酒楼", "FullAddress": "四川省成都市青羊区青羊宫商圈百花西路5号", "Contacts": "閻錫山", "ContactNumber": "53453333333333334", "SysNo": 414861680372092900, "NetworkBizAuthSysNo": 413838142236266500, "MapScope": "30.65752999141844,104.05141018449751;30.650626249675994,104.05269764482466;30.65428123318884,104.05810497819868;30.656680894693064,104.05514381944624;30.65476117025514,104.05359886705367" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "成都圖書館", "FullAddress": "四川省成都市青羊区人民公园文翁路98号", "Contacts": "范文程", "ContactNumber": "53453333333333334", "SysNo": 414861680405647360, "NetworkBizAuthSysNo": 413838142236266500, "MapScope": "30.65878516421945,104.04394291460005;30.65804682925163,104.0408530098149;30.654835006515416,104.0408530098149;30.653875130733244,104.0448870521733;30.6556841194549,104.04720448076216;30.658083746133983,104.04505871355025" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "航天科技大厦", "FullAddress": "四川省成都市锦江区指挥街111号", "Contacts": "李世民", "ContactNumber": "53453333333333334", "SysNo": 414861680439201800, "NetworkBizAuthSysNo": 413838142236266500, "MapScope": "30.650356275834888,104.0625315210408;30.64193818902546,104.0582829019612;30.640055095637415,104.06905465336501;30.6472549606879,104.07613568516433;30.650245516292472,104.06283192845046" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "成都拖板鞋青年旅舍", "FullAddress": "四川省成都市锦江区合江亭东升街98号", "Contacts": "薛呂征", "ContactNumber": "53453333333333334", "SysNo": 414861680481144800, "NetworkBizAuthSysNo": 413838142236266500, "MapScope": "30.656890864252322,104.08128552647293;30.650799312735753,104.07394700260818;30.646959592152832,104.08055596562087;30.64902715295193,104.08257298680007;30.6472549606879,104.08407502384841;30.644596611393837,104.08094220371902;30.64337817687897,104.0828304788655;30.644116623871977,104.08789448948562;30.643415099362535,104.09175687046707;30.64969171667721,104.09609132023513" }, { "NetworkSysNo": 413463191394193400, "NetworkName": "成都泰合索菲特大饭店", "FullAddress": "四川省成都市锦江区滨江中路15号", "Contacts": "歐陽修", "ContactNumber": "53453333333333334", "SysNo": 414861680514699260, "NetworkBizAuthSysNo": 413838142236266500, "MapScope": "30.66541839148557,104.08712201328933;30.660471779015555,104.08386044712722;30.653789758716457,104.09849457951248;30.657296954039,104.10059743138015;30.660545610913708,104.09441762180984;30.662391390037417,104.09574799748123;30.66316660675722,104.097507526595;30.664015646505653,104.09789376469314;30.664938507336572,104.09802251072585;30.6656767896556,104.09789376469314;30.670918431917208,104.09566216679275;30.673133124873793,104.09484677525222;30.674240452312073,104.09287266941726" }];
+
+        var map;
+        var drawingManager;
+        var infoWindow;
+        var polygonArr = [];
+        var select_OldPolygon;
+        //待刪除的多邊形服務範圍
+        var waitRemovePolygon = null;
+
+        /*var arrPosition = [
+            [{ name: '四川科技館', address: "四川省成都市青羊区骡马市人民中路一段16号" }, 30.659634242460026, 104.06582974016158],//四川科技館
+            [{ name: '人民公園', address: "四川省成都市青羊区人民公园祠堂街9号" }, 30.65711866001459, 104.05755979623416],//人民公園
+            [{ name: '航天科技大廈', address: '四川省成都市锦江区新光华街1号' }, 30.65245921769793, 104.06661987304688],//航天科技大廈
+            [{ name: '陝西街', address: '四川省成都市青羊区陕西街195号' }, 30.654457224647835, 104.06189424600223],//陝西街
+            [{ name: '金家壩街', address: '四川省成都市青羊区金家壩街' }, 30.659813581249217, 104.06193716134646],//金家壩街
+            [{ name: '陽光大廈', address: '四川省成都市锦江区盐市口商圈顺城大街11号' }, 30.655829211946056, 104.07251889061115],
+            [{ name: '青龙湖湿地公园', address: '十陵风景区内' }, 30.634983010145675, 104.18836222190498], //青龙湖湿地公园
+            [{ name: '彭州園', address: '四川省成都市彭州市外西街' }, 30.98546577967493, 103.93127657158232]
+        ];*/
+
+        var result_mark;
+        var pageConfig = {
+            //右键菜单
+            createRightMenu: function (divDom, map) {
+                var controlUI = document.createElement('div');
+                var waiDiv = document.createElement('div');
+                waiDiv.className = "mytool";
+
+                var a1 = document.createElement('a');
+                a1.href = "javascript:;";
+                a1.innerText = "编辑";
+                a1.addEventListener('click', function (source, event) {
+                    waitRemovePolygon.setEditable(true);
+                    document.getElementById('rightMenu').remove();
+                });
+                waiDiv.appendChild(a1);
+
+                var a2 = document.createElement('a');
+                a2.href = "javascript:;";
+                a2.innerText = "完成";
+                a2.addEventListener('click', function (source, event) {
+                    waitRemovePolygon.setEditable(false);
+                    document.getElementById('rightMenu').remove();
+
+                    //記錄多邊形坐標點
+                    console.log(waitRemovePolygon);
+                    var array = waitRemovePolygon.getPath().getArray();
+                    var pathStrArr = [];
+                    for (var i = 0; i < array.length; i++) {
+                        var item = array[i];
+                        var txt = item.lat() + "," + item.lng();
+                        pathStrArr.push(txt);
+                        console.log(txt);
+                    }
+                });
+                waiDiv.appendChild(a2);
+
+                var a3 = document.createElement('a');
+                a3.href = "javascript:;";
+                a3.innerText = "刪除";
+                a3.addEventListener('click', function (source, event) {
+                    waitRemovePolygon.setMap(null);
+                    document.getElementById('rightMenu').remove();
+                });
+                waiDiv.appendChild(a3);
+
+                divDom.appendChild(waiDiv);
+            },
+
+            //多邊形右鍵事件
+            polygonRightClick: function (obj, event) {
+                waitRemovePolygon = obj;
+                console.log(event);
+                var txt = event.wa.clientX + ',' + event.wa.clientY;
+                //测试demo没有全屏，水平方向与左侧屏幕边有距离，所以要减去
+                var positionX = event.wa.clientX;
+                var positionY = event.wa.clientY;
+                var mapWidth = document.getElementById('map').clientWidth;
+                var mapHeight =document.getElementById('map').clientHeight;
+                if(positionX < 50 ){
+                    positionX = 50;
+                }else if((mapWidth-positionX) < 50){
+                    positionX = mapWidth - 50;
+                }
+                if(positionY<100){
+                    positionY = 100;
+                }else if((mapHeight-positionY) < 100){
+                    positionY = mapHeight - 100;
+                }
+                console.log("右键坐标"+txt);
+                //判斷是否存在此菜單
+                if (document.getElementById('rightMenu') != undefined) {
+                    document.getElementById('rightMenu').remove();
+                }
+                var controlDiv = document.createElement('div');
+                controlDiv.id = 'rightMenu';
+                controlDiv.index = 1;
+                controlDiv.style.position = "absolute";
+                controlDiv.style.zIndex = "20000";
+                controlDiv.style.left = positionX + 'px';
+                controlDiv.style.top = positionY + 'px';
+                controlDiv.style.display = "none";
+
+                var rightMenu = new pageConfig.createRightMenu(controlDiv, map);
+                map.controls[google.maps.ControlPosition.CENTER].push(controlDiv);
+                setTimeout(function () {
+                    controlDiv.style.left = positionX + 'px';
+                    controlDiv.style.top = positionY + 'px';
+                    controlDiv.style.display = "block";
+                }, 10);
+                //10秒不操作移除右鍵菜單
+                setTimeout(function () {
+                    controlDiv.remove();
+                }, 10000);
+            },
+
+            //加載多邊形，服務範圍
+            loadPolygon: function (areaList) {
+
+                for (var i = 0; i < areaList.length; i++) {
+                    var item = areaList[i];
+
+                    var postions = item.MapScope.split(';');
+                    var triangleCoords = [];
+                    for (var g = 0; g < postions.length; g++) {
+                        var item_g = postions[g];
+                        var lat = parseFloat(item_g.split(',')[0]);
+                        var lng = parseFloat(item_g.split(',')[1]);
+                        triangleCoords.push({ lat: lat, lng: lng });
+                    }
+
+                    //计算多边形中心坐标
+                    var centerLatLng = pageConfig.getCenter(triangleCoords);
+
+                    // Construct the polygon.
+                    var _old_Polygon = new google.maps.Polygon({
+                        paths: triangleCoords,
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 0.6,
+                        strokeWeight: 1,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.1
+                    });
+
+                    //方便选中店铺高亮显示
+                    _old_Polygon.SysNo = item.SysNo;
+                    //中心坐标
+                    _old_Polygon.CenterLatLng = centerLatLng;
+                    polygonArr.push(_old_Polygon);
+
+                    _old_Polygon.setMap(map);
+                    //清理集合
+                    triangleCoords.length = 0;
+
+                    //服務範圍點擊，信息提示
+                    _old_Polygon.addListener("click", function (event) {
+                        var array = [];
+                        array = this.getPath().getArray();
+                        var pathStrArr = [];
+                        var msg_area = "<br/><br/>当前多边形点位信息：";
+                        for (var i = 0; i < array.length; i++) {
+                            var item = array[i];
+                            var txt = item.lat() + "," + item.lng();
+                            pathStrArr.push(txt);
+                            console.log(txt);
+                            msg_area += "<br/>"+txt;
+                        }
+                        var msg = "当前点位信息：<br/> "+ event.latLng.lat() + "," + event.latLng.lng() + msg_area;
+                        var html = event.latLng.lat() + "," + event.latLng.lng();
+                        document.getElementById("msg").innerHTML = html;
+
+                        //标记点位
+                        var position = new google.maps.LatLng( event.latLng.lat(), event.latLng.lng());
+                        if (result_mark != null) {
+                            result_mark.setMap(null);
+                        }
+                        result_mark = new google.maps.Marker({ position: position });
+                        result_mark.setMap(map);
+                        map.panTo(position, 15);
+
+                        //显示信息框
+                        pageConfig.markerTips(msg, event.latLng);
+                    });
+
+                    //注册多边形右键事件
+                    _old_Polygon.addListener('rightclick', function (event) {
+                        pageConfig.polygonRightClick(this, event);
+                    });
+                }
+                //定位服务范围第一个服务区
+                if (polygonArr.length > 0) {
+                    var firstOne = polygonArr[0];
+                    map.panTo(firstOne.CenterLatLng);
+                }
+            },
+
+            //改变定位信息
+            changePosition: function (thisObj) {
+                var position = new google.maps.LatLng(thisObj.value.split(',')[0], thisObj.value.split(',')[1]);
+                if (result_mark != null) {
+                    result_mark.setMap(null);
+                }
+                result_mark = new google.maps.Marker({ position: position });
+                result_mark.setMap(map);
+                map.panTo(position, 15);
+            },
+
+            //搜索地址
+            searchAddress: function () {
+                var index = 0;
+                var waitShow = setInterval(function () {
+                    if (index == 4) {
+                        index = 1;
+                    }
+                    var points = "。。。。。";
+                    var shouPoints = points.substring(0, index);
+                    document.getElementById('tishiMsg').innerHTML = "查找中" + shouPoints;
+                    index++;
+                }, 200);
+
+                var address = document.getElementById("serarchAddressTxt").value;
+                var request = {
+                    address: address
+                };
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode(request,
+                    function (GeocoderResult, GeocoderStatus) {
+                        //移除加载等待效果...
+                        window.clearInterval(waitShow);
+                        document.getElementById('tishiMsg').innerHTML = "";
+
+                        console.log("GeocoderStatus:" + GeocoderStatus);
+                        console.log(GeocoderResult);
+                        //GeocoderResult.geometry.location
+                        var location = GeocoderResult[0].geometry.location;
+                        console.log(GeocoderResult[0].geometry.location);
+                        if (result_mark != null) {
+                            result_mark.setMap(null);
+                        }
+                        result_mark = new google.maps.Marker({ position: location });
+                        result_mark.setMap(map);
+                        //定位到搜索結果
+                        map.panTo(location);
+                    });
+            },
+
+            //计算多边形中心点
+            getCenter: function (triangleCoords) {
+                var x = 0.0;
+                var y = 0.0;
+                for (var i = 0; i < triangleCoords.length; i++) {
+                    x = x + parseFloat(triangleCoords[i].lat);
+                    y = y + parseFloat(triangleCoords[i].lng);
+                }
+                x = x / triangleCoords.length;
+                y = y / triangleCoords.length;
+                return new google.maps.LatLng(x, y);
+            },
+
+            //弹出消息框
+            markerTips: function (msg, position) {
+                infoWindow.setContent(msg);
+                infoWindow.setPosition(position);
+                infoWindow.open(map);
+            },
+
+            //店铺改变时
+            storeChange: function (obj, event) {
+                //失去焦点后还原填充色
+                if (select_OldPolygon != undefined && select_OldPolygon != null) {
+                    select_OldPolygon.setOptions({ fillColor: '#FF0000' });
+                }
+                //高亮定位到选择的服务区
+                var storeId = obj.value;
+                var polygonResult = polygonArr.find(w => w.SysNo == storeId);
+                polygonResult.setOptions({ fillColor: '#33CC33' });
+                //定位此图
+                map.panTo(polygonResult.CenterLatLng);
+                select_OldPolygon = polygonResult;
+            }
+        };
+
+        /*//加載位置下拉框
+        var arr_select = [];
+        for (var i = 0; i < arrPosition.length; i++) {
+            var item = arrPosition[i];
+            var p = item[1] + "," + item[2];
+            var option = '<option value="' + p + '">' + item[0].name + '</option>';
+            arr_select.push(option);
+        }
+        document.getElementById('positionList').innerHTML += arr_select.join('');*/
+
+        //地图初始化
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: new google.maps.LatLng(30.65711866001459, 104.05755979623416),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: false,//地圖類型選擇，地形，衛星之類
+                scaleControl: false,
+                streetViewControl: false,//不顯示街景【按鈕】，地圖中右側的小人
+                zoomControl: false,    //不顯示縮放【按鈕】+-號
+                fullscreenControl:false //不顯示全屏【按鈕】
+            });
+
+            //消息框初始化
+            infoWindow = new google.maps.InfoWindow;
+
+            //绘画工具
+            drawingManager = new google.maps.drawing.DrawingManager({
+                //drawingMode: google.maps.drawing.OverlayType.POLYGON,
+                drawingControl: true,
+                drawingControlOptions: {
+                    position: google.maps.ControlPosition.TOP_CENTER,
+                    drawingModes: [
+                        //多边形
+                        google.maps.drawing.OverlayType.POLYGON
+                    ]
+                },
+                polygonOptions: {
+                    strokeColor: "#000000",
+                    strokeOpacity: 1,
+                    strokeWeight: 2,
+                    fillColor: "#FF0000",
+                    fillOpacity: 0.2,
+                    editable: true,
+                    geodesic: true,
+                }
+            });
+            //绘图工具加载设置
+            drawingManager.setMap(map);
+
+            eventList();
+
+            //加载多边形
+            pageConfig.loadPolygon(serviceList);
+
+            //注册 多边形 绘制完成事件
+            google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
+                //退出绘图模式
+                drawingManager.setDrawingMode(null);
+
+                //退出编辑模式
+                polygon.setEditable(false);
+
+                //console.log(polygon);
+                console.log("-----------------");
+                var array = polygon.getPath().getArray();
+                var pathStrArr = [];
+                var msg_area = "<br/><br/>当前多边形点位信息：";
+                for (var i = 0; i < array.length; i++) {
+                    var item = array[i];
+                    var txt = item.lat() + "," + item.lng();
+                    pathStrArr.push(txt);
+                    console.log(txt);
+                    msg_area += "<br/>"+txt;
+                }
+
+                //显示区域信息
+                polygon.addListener("click", function (event) {
+                    var msg = "当前点位信息：<br/> "+ event.latLng.lat() + "," + event.latLng.lng() + msg_area;
+                    var html = event.latLng.lat() + "," + event.latLng.lng();
+                    document.getElementById("msg").innerHTML = html;
+                    pageConfig.markerTips(msg, event.latLng);
+                });
+                //注册多边形右键事件
+                polygon.addListener('rightclick', function (event) {
+                  pageConfig.polygonRightClick(this, event);
+                });
+            });
+        }
+
+        function eventList() {
+            google.maps.event.addListener(map, 'click', function (event) {
+                var html = event.latLng.lat() + "," + event.latLng.lng();
+                document.getElementById("msg").innerHTML = html;
+                //标记点位
+                var position = new google.maps.LatLng( event.latLng.lat(), event.latLng.lng());
+                if (result_mark != null) {
+                    result_mark.setMap(null);
+                }
+                result_mark = new google.maps.Marker({ position: position });
+                result_mark.setMap(map);
+                map.panTo(position, 15);
+            });
+        }
+
+        /*!function () {
+            //enter事件
+            document.onkeydown = function (e) {
+                if (!e) {
+                    e = window.event;
+                }
+                if ((e.keyCode || e.which) == 13) {
+                    //搜索地址
+                    pageConfig.searchAddress();
+                }
+            };
+
+            //加载店铺 下拉框
+            var store = document.getElementById("Store");
+            var optionArr = [];
+            for (var i = 0; i < serviceList.length; i++) {
+                var item = serviceList[i];
+                var html = '<option value="' + item.SysNo + '">' + item.NetworkName + '</option>';
+                optionArr.push(html);
+            }
+            store.innerHTML = optionArr.join('');
+        }();*/
+    </script>
+    <script src="http://maps.google.cn/maps/api/js?key=AIzaSyD9Rvgz_BDbP4qTM-MZ7ZGdngTaxkbgpGA&sensor=false&libraries=drawing&callback=initMap" async defer></script>
+</body>
+</html>

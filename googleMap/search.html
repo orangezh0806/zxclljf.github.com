@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索+定位</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="resources/aui-20170109-v2.1/css/aui.css" />
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; }
+        .search-map{
+            width: 100%;
+            height: 60%;
+            position:fixed;
+            top:0;
+            z-index: 2;
+        }
+        .search-map #map { width: 100%; height: calc(100% - 2.2rem); margin: 0 auto; }
+        .search-result{
+            width: 100%;
+            height: 40%;
+            position:fixed;
+            bottom: 0;
+            margin-bottom: 0;
+            overflow: auto;
+            z-index: 1;
+        }
+        .aui-margin-b-15{
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="search-map">
+    <div class="aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="getNearSearch()">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <form action="javascript:getNearSearch();">
+                <input type="search" placeholder="请输入搜索内容" id="search-input" onchange="getNearSearch()">
+            </form>
+        </div>
+        <div class="aui-searchbar-cancel" tapmod>取消</div>
+    </div>
+    <div id="map"></div>
+</div>
+<div class="search-result">
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in" id="resultList">
+            <!--<li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">Item1</div>
+                </div>
+            </li>-->
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="resources/aui-20170109-v2.1/script/api.js"></script>
+<script type="text/javascript" src="resources/aui-20170109-v2.1/script/aui-scroll.js"></script>
+<script>
+    var map;
+    var infoWindow;
+    var result_mark;
+    var getNextPage = null;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: {lat: 30.65711866001459, lng: 104.05755979623416},
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,//地圖類型選擇，地形，衛星之類
+            scaleControl: false,
+            streetViewControl: false,//不顯示街景【按鈕】，地圖中右側的小人
+            zoomControl: false,    //不顯示縮放【按鈕】+-號
+            fullscreenControl:false //不顯示全屏【按鈕】
+        });
+
+        // Define the LatLng coordinates for the polygon.
+        var triangleCoords = [
+            {lat:30.660081391974092,lng:104.05623100816695},
+            {lat:30.661631856254132,lng:104.05700348436324},
+            {lat:30.66259165501014,lng:104.05683182298628},
+            {lat:30.663477614632022,lng:104.05605934679},
+            {lat:30.665470994083893,lng:104.05597351610152},
+            {lat:30.668793201790304,lng:104.05614517747847},
+            {lat:30.672115295265307,lng:104.05726097642867},
+            {lat:30.676027836627824,lng:104.06060837327925},
+            {lat:30.65720189232233,lng:104.10051964342085},
+            {lat:30.640661566538537,lng:104.09004829942671},
+            {lat:30.6424338796295,lng:104.08558510362593},
+            {lat:30.644723069306018,lng:104.08052109300581},
+            {lat:30.64583072227756,lng:104.07811783372847},
+            {lat:30.646716835520333,lng:104.06953476488081},
+            {lat:30.647159889096848,lng:104.06713150560347},
+            {lat:30.647233731162245,lng:104.06258247911421},
+            {lat:30.64804599016001,lng:104.06026505052535},
+            {lat:30.64907976447105,lng:104.05760429918257},
+            {lat:30.65247637367456,lng:104.0534844261357},
+            {lat:30.652771725357443,lng:104.05228279649702},
+            {lat:30.656463545260564,lng:104.05460022508589}
+        ];
+
+        // Construct the polygon.
+        var bermudaTriangle = new google.maps.Polygon({
+            paths: triangleCoords,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.6,
+            strokeWeight: 1,
+            fillColor: '#FF0000',
+            fillOpacity: 0.1
+        });
+        bermudaTriangle.setMap(map);
+
+        infoWindow = new google.maps.InfoWindow;
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                markMap(pos);
+            }, function() {
+                //定位失败则标记中心点
+                markMap(map.getCenter());
+            });
+        } else {
+            //定位失败则标记中心点
+            markMap(map.getCenter());
+        }
+        getNearSearch();
+        map.addListener('dragend', function() {
+            // 1 seconds after the center of the map has changed, pan back to the
+            // marker.
+            window.setTimeout(function() {
+                result_mark.setPosition(map.getCenter());
+                map.panTo(result_mark.getPosition());
+                getNearSearch();
+            }, 1000);
+            var isContain = google.maps.geometry.poly.containsLocation(map.getCenter(), bermudaTriangle);
+            console.log("isContain:"+isContain);
+        });
+        /*map.addListener('center_changed', function() {
+            // 1 seconds after the center of the map has changed, pan back to the
+            // marker.
+            window.setTimeout(function() {
+                result_mark.setPosition(map.getCenter());
+                map.panTo(result_mark.getPosition());
+                //getNearSearch();
+            }, 1000);
+        });*/
+    }
+
+    function getNearSearch() {
+        var keyword = document.getElementById("search-input").value;
+        var request;
+        if(!keyword && typeof(keyword)!="undefined" && keyword!=0){
+            request = {
+                location: map.getCenter(),
+                radius: '200',
+                keyword:keyword
+            };
+        }else {
+            request = {
+                location: map.getCenter(),
+                radius: '200'
+            };
+        }
+
+        if (getNextPage) getNextPage();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, function(results, status,pagination) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                console.log(results);
+                createResultList(results);
+                //moreButton.disabled = !pagination.hasNextPage;
+                /*getNextPage = pagination.hasNextPage && function() {
+                    pagination.nextPage();
+                };*/
+            }
+        });
+    }
+
+    /**
+     * 处理搜索结果
+     * @param results
+     */
+    function createResultList(results) {
+        var place = results[1];
+        createMarker(place);
+        var html ="";
+        for (var i = 1; i < results.length; i++) {
+            html += "<li class=\"aui-list-item\" onclick=\"markMapByLatALng("+results[i].geometry.location.lat()+","+results[i].geometry.location.lng()+")\">\n" +
+                "            <div class=\"aui-list-item-inner\">\n" +
+                "                <div class=\"aui-list-item-title\">"+results[i].name+"</div>\n" +
+                "            </div>\n" +
+                "        </li>";
+            document.getElementById("resultList").innerHTML = html;
+        }
+
+    }
+
+    function markMapByLatALng(lat,lng) {
+        var pos = {
+            lat: lat,
+            lng: lng
+        };
+        markMap(pos);
+    }
+
+    function createMarker(place) {
+        if (result_mark != null) {
+            result_mark.setMap(null);
+        }
+        result_mark = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location,
+            draggable:true
+        });
+        map.panTo(place.geometry.location, 15);
+        map.setCenter(place.geometry.location);
+        /*google.maps.event.addListener(result_mark, 'click', function() {
+            infoWindow.setContent(place.name);
+            infoWindow.open(map, this);
+        });*/
+    }
+
+    function markMap(pos) {
+        if (result_mark != null) {
+            result_mark.setMap(null);
+        }
+        result_mark = new google.maps.Marker({ position: pos,draggable:true });
+        result_mark.setMap(map);
+        map.panTo(pos, 15);
+        map.setCenter(pos);
+    }
+
+    apiready = function(){
+        api.parseTapmode();
+    };
+    var searchBar = document.querySelector(".aui-searchbar-input");
+    if(searchBar){
+        searchBar.onclick = function(){
+            document.querySelector(".aui-searchbar-cancel").style.marginRight = 0;
+        }
+    }
+    document.querySelector(".aui-searchbar-cancel").onclick = function(){
+        this.style.marginRight = "-"+this.offsetWidth+"px";
+        document.getElementById("search-input").value = '';
+        document.getElementById("search-input").blur();
+    };
+
+    /*var scroll = new auiScroll({
+        listen:true, //是否监听滚动高度，开启后将实时返回滚动高度
+        distance:10 //判断到达底部的距离，isToBottom为true
+    },function(ret){
+        console.log(ret);
+        console.log(getNextPage);
+        if(getNextPage){
+            getNearSearch();
+        }
+    });*/
+</script>
+<script src="http://maps.google.cn/maps/api/js?key=AIzaSyD9Rvgz_BDbP4qTM-MZ7ZGdngTaxkbgpGA&libraries=places&callback=initMap" async defer></script>
+</html>
